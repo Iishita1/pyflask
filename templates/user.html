@@ -3,33 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Hello, {{ user }}!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 50px;
         }
-        a {
+        .btn {
             text-decoration: none;
             color: white;
             background-color: #007BFF;
             padding: 10px 20px;
             border-radius: 5px;
         }
-        a:hover {
+        .btn:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Home Page</h1>
-
-    {% if user %}
-        <p>Welcome back, {{ user }}!</p>
-        <p><a href="/user">Go to your Dashboard</a></p>
-    {% else %}
-        <p><a href="/login">Login</a></p>
-    {% endif %}
+    <h1>Hello, {{ user }}!!</h1>
+    <p>Welcome to your dashboard.</p>
+    <a href="/logout" class="btn">Logout</a>
 </body>
 </html>
