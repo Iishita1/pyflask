@@ -5,6 +5,9 @@ app = Flask(__name__)
 app.secret_key = "hello"
 app.permanent_session_lifetime = timedelta(days=1)
 
+db=SQLAlchemy(app)
+app.config
+
 @app.route("/")
 def home():
     user = session.get("user")
