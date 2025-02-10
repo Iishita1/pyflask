@@ -1,32 +1,22 @@
-#creates flask app for use
-
-
 from flask import Flask
 
-#ORM of database
 from flask_sqlalchemy import SQLAlchemy
 
-#used for migration of data
 from flask_migrate import Migrate
 
-#instant of database
-db=SQLAlchemy()
+db = SQLAlchemy()
 
-#method returns flask application
+
 def create_app():
-        
-        #creating flask app
-        flask_app=Flask(__name__)
-        flask_app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///./users.db'
-        from view import routes
-        routes(flask_app,db)
-
-        #defining the path of our database
-        migrate= Migrate(flask_app, db)
-        db.init_app(flask_app)
-
-       
+    app = Flask(__name__, template_folder='templates')
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./testdb.db'
+    db.init_app(app)
 
 
+    from view import register_request
+    register_request(app, db)
 
-        return flask_app
+    migrate = Migrate(app, db)
+
+
+    return app
