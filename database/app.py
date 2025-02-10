@@ -18,6 +18,9 @@ def create_app():
         #creating flask app
         flask_app=Flask(__name__)
         flask_app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///./users.db'
+        from view import routes
+        routes(flask_app,db)
+
         #defining the path of our database
         migrate= Migrate(flask_app, db)
         db.init_app(flask_app)

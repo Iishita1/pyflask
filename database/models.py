@@ -2,9 +2,10 @@ from app import db
 
 
 
-class Person(db.model):
+class Person(db.Model):
     __tablename__= 'usertable'
-    id = db.Coloumn(db.Integer, primary_key=True)
-    name=db.coloumn(db.Text)
-    age=db.Coloumn(db.integer)
-    job=db.Coloumn(db.Text)
+    id = db.Column(db.Integer, primary_key=True)
+    name=db.Column(db.Text)
+    age=db.Column(db.Integer)
+    job=db.Column(db.Text)
+    dob=db.Column(db.Date)
